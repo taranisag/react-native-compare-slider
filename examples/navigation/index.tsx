@@ -1,31 +1,54 @@
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { ColorSchemeName, Text } from 'react-native';
 
-import { RootStackParamList } from '../../types';
-
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
-  return (
-    <NavigationContainer
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootNavigator />
-    </NavigationContainer>
-  );
-}
+import { Screens } from '../screens/Screens';
+import {
+  ScreenPlayground,
+  ScreenRoot,
+  ScreenSimpleImages,
+  ScreenTwoMaps,
+} from '../screens';
 
 // A root stack navigator is often used for displaying modals on top of all other content
 // Read more here: https://reactnavigation.org/docs/modal
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator();
 
-const Root = () => {
-  return <Text style={{ padding: 100 }}>123</Text>;
-}
+const defaultScreenOptions = {
+  headerBackTitle: 'Back',
+  headerShown: true,
+};
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={Root} />
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName={Screens.ROOT}
+    >
+      <Stack.Screen name={Screens.ROOT} component={ScreenRoot} />
+      <Stack.Screen
+        name={Screens.SIMPLE_IMAGES}
+        component={ScreenSimpleImages}
+        options={defaultScreenOptions}
+      />
+      <Stack.Screen
+        name={Screens.TWO_MAPS}
+        component={ScreenTwoMaps}
+        options={defaultScreenOptions}
+      />
+      <Stack.Screen
+        name={Screens.PLAYGROUND}
+        component={ScreenPlayground}
+        options={defaultScreenOptions}
+      />
     </Stack.Navigator>
   );
 }
+
+export const Navigation: React.FC = () => {
+  return (
+    <NavigationContainer>
+      <RootNavigator />
+    </NavigationContainer>
+  );
+};
