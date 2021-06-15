@@ -1,3 +1,4 @@
-import { Compare, Before, After, DefaultDragger, Dragger } from './TempSlider';
+import Compare, { Before, After, DefaultDragger, Dragger } from './TempSlider';
 
-export { Compare, Before, After, DefaultDragger, Dragger };
+export default Compare;
+export { Before, After, DefaultDragger, Dragger };
