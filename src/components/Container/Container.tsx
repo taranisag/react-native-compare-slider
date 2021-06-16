@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollView, Image, Dimensions } from 'react-native';
-import Compare, { Before, After, DefaultDragger } from '../TempSlider';
+import Compare, { DefaultDragger } from '../TempSlider';
 
 const deviceWidth = Dimensions.get('window').width;
 
@@ -23,19 +23,19 @@ export const Container: React.FC = () => {
         width={deviceWidth - 20}
         onMoveStart={onMoveStart}
         onMoveEnd={onMoveEnd}
-      >
-        <Before>
+        itemOne={
           <Image
             source={require('../../../assets/images/before.jpg')}
             style={{ width: deviceWidth - 20, height: deviceWidth / 2 }}
           />
-        </Before>
-        <After>
+        }
+        itemTwo={
           <Image
             source={require('../../../assets/images/after.jpg')}
             style={{ width: deviceWidth - 20, height: deviceWidth / 2 }}
           />
-        </After>
+        }
+      >
         <DefaultDragger />
       </Compare>
     </ScrollView>

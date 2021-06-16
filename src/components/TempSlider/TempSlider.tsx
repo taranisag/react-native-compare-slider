@@ -1,16 +1,9 @@
 // @ts-nocheck
+// base source code - https://github.com/vmaryada/react-native-before-after-slider-v2
 import React, { Component, useState, useEffect } from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  PanResponder,
-  Dimensions,
-  Image,
-} from 'react-native';
+import { View, PanResponder, Dimensions, Image } from 'react-native';
 
 const deviceWidth = Dimensions.get('window').width;
-const deviceHeight = Dimensions.get('window').height;
 
 const Before = (props) => (
   <View style={{ flex: 1 }}>
@@ -176,10 +169,15 @@ export default function Compare(props) {
     });
   };
 
-  const { children } = props;
-
+  const { itemOne, itemTwo } = props;
   return (
     <View style={{ width, height, backgroundColor: '#f2f2f2' }}>
+      <Before state={state} parent={parent}>
+        {itemOne}
+      </Before>
+      <After state={state} parent={parent}>
+        {itemTwo}
+      </After>
       {renderChildren(props, state)}
     </View>
   );
