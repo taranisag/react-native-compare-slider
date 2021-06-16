@@ -183,4 +183,4 @@ export default function Compare(props) {
   );
 }
 
-export { Before, After, DefaultDragger, Dragger };
+export { DefaultDragger, Dragger };
