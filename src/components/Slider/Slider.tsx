@@ -1,11 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-// base source code - https://github.com/vmaryada/react-native-before-after-slider-v2
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, PanResponder, Dimensions, Image } from 'react-native';
 
 const deviceWidth = Dimensions.get('window').width;
 
-const Before = (props) => (
+const Before = ({ state, children }) => (
   <View style={{ flex: 1 }}>
     <View
       style={{
@@ -13,54 +13,57 @@ const Before = (props) => (
         left: 0,
         top: 0,
         overflow: 'hidden',
-        width: props.state.width,
-        height: props.state.height,
+        width: state.width,
+        height: state.height,
       }}
     >
-      {props.children}
+      {children}
     </View>
   </View>
 );
 
-const After = (props) => (
-  <View
-    style={{
-      flex: 1,
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: 9,
-      overflow: 'hidden',
-      left: props.state.left,
-    }}
-  >
+const After = ({ state, children }) => {
+  return (
     <View
       style={{
+        flex: 1,
         position: 'absolute',
-        right: 0,
         top: 0,
-        width: props.state.width,
-        height: props.state.height,
+        right: 0,
+        bottom: 0,
+        zIndex: 9,
+        overflow: 'hidden',
+        left: state.left,
       }}
     >
-      {props.children}
+      <View
+        style={{
+          position: 'absolute',
+          right: 0,
+          top: 0,
+          width: state.width,
+          height: state.height,
+        }}
+      >
+        {children}
+      </View>
     </View>
-  </View>
-);
+  );
+};
 
-const DefaultDragger = (props) => (
+const DefaultDragger = ({ parent, state }) => (
   <View
-    {...props.parent._panResponder.panHandlers}
+    /* eslint-disable-next-line no-underscore-dangle,react/jsx-props-no-spreading */
+    {...parent._panResponder.panHandlers}
     style={{
-      height: props.state.height,
-      width: props.state.draggerWidth,
+      height: state.height,
+      width: state.draggerWidth,
       backgroundColor: 'transparent',
       position: 'absolute',
       top: 0,
       zIndex: 10,
-      marginLeft: -props.state.draggerWidth / 2,
-      left: props.state.left,
+      marginLeft: -state.draggerWidth / 2,
+      left: state.left,
     }}
   >
     <View
@@ -71,10 +74,11 @@ const DefaultDragger = (props) => (
         overflow: 'hidden',
         backgroundColor: '#FFF',
         borderRadius: 25,
-        marginTop: props.state.height / 2 - 25,
+        marginTop: state.height / 2 - 25,
       }}
     >
       <Image
+        /* eslint-disable-next-line global-require */
         source={require('../../../assets/images/arrows.png')}
         style={{ width: 40, height: 40, margin: 5 }}
       />
@@ -82,32 +86,35 @@ const DefaultDragger = (props) => (
   </View>
 );
 
-const Dragger = (props) => (
+const Dragger = ({ parent, state, children }): unknown => (
   <View
-    {...props.parent._panResponder.panHandlers}
+    /* eslint-disable-next-line no-underscore-dangle,react/jsx-props-no-spreading */
+    {...parent._panResponder.panHandlers}
     style={{
-      height: props.state.height,
-      width: props.state.draggerWidth,
+      height: state.height,
+      width: state.draggerWidth,
       position: 'absolute',
       top: 0,
       zIndex: 10,
-      marginLeft: -props.state.draggerWidth / 2,
-      left: props.state.left,
+      marginLeft: -state.draggerWidth / 2,
+      left: state.left,
     }}
   >
-    {props.children}
+    {children}
   </View>
 );
 
-export default function Compare(props) {
-  const initial = props.initial ? props.initial : 0;
-  const width = props.width ? props.width : deviceWidth;
-  const height = props.height ? props.height : width / 2;
-  const draggerWidth =
-    props.draggerWidth || props.draggerWidth == 0 ? props.draggerWidth : 50;
-  const onMove = props.onMove ? props.onMove : () => {};
-  const onMoveStart = props.onMoveStart ? props.onMoveStart : () => {};
-  const onMoveEnd = props.onMoveEnd ? props.onMoveEnd : () => {};
+export default function Compare(props: any): unknown {
+  const {
+    initial = 0,
+    width = deviceWidth,
+    height = deviceWidth / 2,
+    draggerWidth: sliderWidth,
+    onMove = () => null,
+    onMoveStart = () => null,
+    onMoveEnd = () => null,
+  } = props;
+  const draggerWidth = sliderWidth || sliderWidth === 0 ? sliderWidth : 50;
 
   const [state, setState] = useState({
     width,
@@ -122,8 +129,8 @@ export default function Compare(props) {
     onMoveEnd,
   });
   const [exa, setExa] = useState(1);
-  const [parent, setParent] = useState({ _panResponder: () => {} });
-  let tempLeft;
+  const [parent, setParent] = useState({ _panResponder: () => null });
+  const tempLeft = useRef(0);
 
   useEffect(() => {
     setParent({
@@ -131,7 +138,7 @@ export default function Compare(props) {
         onMoveShouldSetResponderCapture: () => true,
         onMoveShouldSetPanResponderCapture: () => true,
 
-        onPanResponderGrant: (e, gestureState) => {
+        onPanResponderGrant: () => {
           setState({ ...state, dx: 0 });
           state.onMoveStart();
         },
@@ -141,29 +148,35 @@ export default function Compare(props) {
 
           let left = state.currentLeft + dx;
 
-          const { width, draggerWidth } = state;
+          const { width: someWidth } = state;
 
           if (left < 0) left = 0;
-          else if (left >= width) left = width;
+          else if (left >= someWidth) left = someWidth;
 
-          tempLeft = left;
+          tempLeft.current = left;
 
           setState({ ...state, left });
           setExa(exa + 1);
           state.onMove();
         },
-        onPanResponderRelease: (e, { vx, vy }) => {
+        onPanResponderRelease: () => {
           state.onMoveEnd();
-          setState({ ...state, currentLeft: tempLeft, left: tempLeft });
+          setState({
+            ...state,
+            currentLeft: tempLeft.current,
+            left: tempLeft.current,
+          });
         },
       }),
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props]);
 
-  const renderChildren = (props, state) => {
-    return React.Children.map(props.children, (child) => {
+  const renderChildren = (someProps: any, someState: any) => {
+    return React.Children.map(someProps.children, (child) => {
       return React.cloneElement(child, {
-        state,
+        state: someState,
         parent,
       });
     });
