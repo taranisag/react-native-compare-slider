@@ -1,6 +1,13 @@
+import { ScreenCustomSliderComponent } from './CustomSliderComponent';
 import { ScreenRoot } from './Root';
-import { ScreenSimpleImages } from './SimpleImages';
+import { ScreenImages } from './Images';
 import { ScreenTwoMaps } from './TwoMaps';
 import { ScreenPlayground } from './Playground';
 
-export { ScreenRoot, ScreenSimpleImages, ScreenTwoMaps, ScreenPlayground };
+export {
+  ScreenCustomSliderComponent,
+  ScreenRoot,
+  ScreenImages,
+  ScreenTwoMaps,
+  ScreenPlayground,
+};

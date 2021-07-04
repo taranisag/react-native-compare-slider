@@ -22,16 +22,22 @@ export const ScreenRoot: React.FC<ScreenRootProps> = (props) => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <TouchableOpacity
-        onPress={onButtonPress(Screens.SIMPLE_IMAGES)}
+        onPress={onButtonPress(Screens.IMAGES)}
         style={styles.button}
       >
-        <Text style={styles.buttonText}>Compare simple images</Text>
+        <Text style={styles.buttonText}>Simple Images</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={onButtonPress(Screens.TWO_MAPS)}
         style={styles.button}
       >
-        <Text style={styles.buttonText}>Compare two maps</Text>
+        <Text style={styles.buttonText}>Compare Two Maps</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={onButtonPress(Screens.CUSTOM_SLIDER_COMPONENT)}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Custom Slider Component</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={onButtonPress(Screens.PLAYGROUND)}

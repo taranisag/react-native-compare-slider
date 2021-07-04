@@ -6,8 +6,9 @@ import { Screens } from '../screens/Screens';
 import {
   ScreenPlayground,
   ScreenRoot,
-  ScreenSimpleImages,
+  ScreenImages,
   ScreenTwoMaps,
+  ScreenCustomSliderComponent,
 } from '../screens';
 
 // A root stack navigator is often used for displaying modals on top of all other content
@@ -27,13 +28,18 @@ function RootNavigator() {
     >
       <Stack.Screen name={Screens.ROOT} component={ScreenRoot} />
       <Stack.Screen
-        name={Screens.SIMPLE_IMAGES}
-        component={ScreenSimpleImages}
+        name={Screens.IMAGES}
+        component={ScreenImages}
         options={defaultScreenOptions}
       />
       <Stack.Screen
         name={Screens.TWO_MAPS}
         component={ScreenTwoMaps}
+        options={defaultScreenOptions}
+      />
+      <Stack.Screen
+        name={Screens.CUSTOM_SLIDER_COMPONENT}
+        component={ScreenCustomSliderComponent}
         options={defaultScreenOptions}
       />
       <Stack.Screen

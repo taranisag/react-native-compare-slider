@@ -15,10 +15,9 @@ export interface IDefaultSliderProps {
 }
 
 export interface ISliderProps extends IDefaultSliderProps {
-  translateX: Animated.AnimatedAddition;
-  touchX: Animated.Value;
+  translateX: Animated.Value;
   SliderComponent?: React.ReactNode;
-  containerHeight: number;
+  containerSize: ISize;
   showSeparationLine?: boolean;
   separationLineStyles?: ViewStyle;
 }

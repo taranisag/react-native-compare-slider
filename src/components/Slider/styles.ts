@@ -3,8 +3,10 @@ import { SLIDER_ARROW_SIZE, SLIDER_SIZE } from '../../utils/constants';
 
 export const styles = StyleSheet.create({
   animatedView: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'center',
   },
   slider: {
     alignItems: 'center',
@@ -32,7 +34,7 @@ export const styles = StyleSheet.create({
     borderRightColor: 'green',
   },
   separationLine: {
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f6fa',
     width: 5,
     position: 'absolute',
   },
