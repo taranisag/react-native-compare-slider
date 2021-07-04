@@ -1,6 +1,6 @@
 <div align="center">
   <h1>React Native Compare Slider</h1>
-  <p>Compare two components side-by-side</p>
+  <p>Compare any two components side-by-side</p>
 
 ![Example](./examples/assets/images/slider-teaser.gif)
 
@@ -38,7 +38,6 @@ $ npm start android
 
 ```sh
 $ npm install react-native-compare-slider
-$ npm start
 ```
 
 ## Props
