@@ -21,7 +21,8 @@
   "include": [
     "src",
     "examples",
-    "App.tsx"
+    "App.tsx",
+    ".app.config.ts"
   ],
   "exclude": [
     "node_modules"
