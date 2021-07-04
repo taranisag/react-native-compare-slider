@@ -4,12 +4,9 @@ import { StackScreenProps } from '@react-navigation/stack';
 import RNM, { MAP_TYPES, PROVIDER_GOOGLE } from 'react-native-maps';
 
 import { Screens } from '../Screens';
-import Compare, { DefaultDragger } from '../../../src/components/Slider';
+import { CompareSlider } from '../../../src/components/CompareSlider';
 
-const deviceWidth = Dimensions.get('window').width;
-
-const { width: dimensionsWindowWidth, height: dimensionsWindowHeight } =
-  Dimensions.get('window');
+const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
@@ -19,8 +16,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   map: {
-    height: dimensionsWindowHeight,
-    width: dimensionsWindowWidth,
+    height: windowHeight,
+    width: windowWidth,
   },
 });
 
@@ -29,11 +26,8 @@ type ScreenTwoMapsProps = StackScreenProps<never, Screens.TWO_MAPS>;
 export const ScreenTwoMaps: React.FC<ScreenTwoMapsProps> = () => {
   return (
     <SafeAreaView>
-      <Compare
-        initial={deviceWidth / 2}
-        draggerWidth={50}
-        width={deviceWidth - 20}
-        itemOne={
+      <CompareSlider
+        before={
           <RNM
             provider={PROVIDER_GOOGLE}
             mapType={MAP_TYPES.SATELLITE}
@@ -46,7 +40,7 @@ export const ScreenTwoMaps: React.FC<ScreenTwoMapsProps> = () => {
             style={styles.map}
           />
         }
-        itemTwo={
+        after={
           <RNM
             provider={PROVIDER_GOOGLE}
             mapType={MAP_TYPES.STANDARD}
@@ -59,9 +53,7 @@ export const ScreenTwoMaps: React.FC<ScreenTwoMapsProps> = () => {
             style={styles.map}
           />
         }
-      >
-        <DefaultDragger />
-      </Compare>
+      />
     </SafeAreaView>
   );
 };

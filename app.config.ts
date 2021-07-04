@@ -15,9 +15,6 @@ export default {
     fallbackToCacheTimeout: 0,
   },
   assetBundlePatterns: ['**/*'],
-  web: {
-    favicon: './assets/images/favicon.png',
-  },
   ios: {
     config: {
       googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY_IOS,
