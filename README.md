@@ -28,8 +28,6 @@
 
 You can run examples by performing these steps:
 
-> > > > > > > 29e9a56... Updated readme
-
 ```
 $ git clone git@github.com:taranisag/react-native-compare-slider.git
 $ npm install
@@ -102,6 +100,8 @@ import RNM, { MAP_TYPES, PROVIDER_GOOGLE } from 'react-native-maps';
   }
 />;
 ```
+
+![Example](./examples/assets/images/slider-map.gif)
 
 ### Customization Usage
 
