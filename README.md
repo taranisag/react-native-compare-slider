@@ -24,7 +24,7 @@
 - Supports landscape and portrait orientations
 - Customization
 
-### Examples
+### Try it out
 
 You can run examples by performing these steps:
 
@@ -34,7 +34,7 @@ $ npm install
 $ npm start android
 ```
 
-### Install
+### Installation
 
 ```sh
 $ npm install react-native-compare-slider
@@ -114,3 +114,8 @@ import { CompareSlider } from 'react-native-compare-slider';
   showSeparationLine={false}
 />;
 ```
+
+## Requirements
+
+- React 16.13+
+- React Native 0.63+
