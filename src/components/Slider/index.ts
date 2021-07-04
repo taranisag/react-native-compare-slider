@@ -1,4 +1,3 @@
-import Compare, { DefaultDragger, Dragger } from './Slider';
+import { Slider } from './Slider';
 
-export default Compare;
-export { DefaultDragger, Dragger };
+export { Slider };
