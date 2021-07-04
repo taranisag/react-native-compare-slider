@@ -23,8 +23,6 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "react": "^16.13.1",
-    "react-native": "^0.63",
     "react-native-reanimated": "~2.1.0",
     "react-native-gesture-handler": "^1.10.3"
   },
@@ -58,7 +56,8 @@
     "@react-navigation/native": "~5.8.10",
     "@react-navigation/stack": "~5.12.8",
     "expo": "~41.0.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
+    "react": "^16.13.1"
   },
   "private": true,
   "husky": {
