@@ -7,7 +7,15 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "cover": "jest --coverage && coveralls < coverage/lcov.info"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taranisag/react-native-compare-slider.git"
   },
   "jest": {
     "preset": "jest-expo"
@@ -30,6 +38,7 @@
     "@types/react-native": "~0.63.2",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
+    "coveralls": "^3.1.1",
     "eslint": "^7.28.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",

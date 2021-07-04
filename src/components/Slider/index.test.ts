@@ -1,5 +1,5 @@
-const number = 1;
+import { Slider } from './Slider';
 
 it('Run fake test', () => {
-  expect(number === 1);
+  expect(Slider).not.toBe(null);
 });
