@@ -10,6 +10,13 @@
     "prepare": "husky install",
     "cover": "jest --coverage && coveralls < coverage/lcov.info"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taranisag/react-native-compare-slider.git"
+  },
   "jest": {
     "preset": "jest-expo"
   },
