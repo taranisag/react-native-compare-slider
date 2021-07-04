@@ -117,6 +117,38 @@ import { CompareSlider } from 'react-native-compare-slider';
 />;
 ```
 
+### Custom Slider
+
+```jsx
+import { CompareSlider } from 'react-native-compare-slider';
+
+const sliderSize = { width: 70, height: 70 };
+
+const styles = StyleSheet.create({
+  slider: {
+    ...sliderSize,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.75)',
+  },
+  sliderText: {
+    fontSize: 25,
+  },
+});
+
+<CompareSlider
+  before={<Image source={imageBefore} />}
+  after={<Image source={imageAfter} />}
+  sliderSize={sliderSize}
+  SliderComponent={
+    <View style={styles.slider}>
+      <Text style={styles.sliderText}>{'<    >'}</Text>
+    </View>
+  }
+  showSeparationLine={false}
+/>;
+```
+
 ## Requirements
 
 - React 16.13+
