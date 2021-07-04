@@ -1,5 +1,5 @@
 {
-  "name": "@taranisag/react-native-compare-slider",
+  "name": "react-native-compare-slider",
   "main": "index.ts",
   "version": "0.0.1",
   "scripts": {
