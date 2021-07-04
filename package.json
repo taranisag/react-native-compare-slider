@@ -59,7 +59,6 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
     "react": "^16.13.1"
   },
-  "private": true,
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
