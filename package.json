@@ -8,7 +8,7 @@
     "eject": "expo eject",
     "test": "jest --watchAll",
     "prepare": "husky install",
-    "cover": "jest --coverage && coveralls < coverage/lcov.info"
+    "cover": "jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "jest": {
     "preset": "jest-expo"
