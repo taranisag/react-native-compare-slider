@@ -13,7 +13,9 @@
 <a href="https://coveralls.io/github/taranisag/react-native-compare-slider?branch=master">
 <img src="https://coveralls.io/repos/github/taranisag/react-native-compare-slider/badge.svg?branch=master" alt="Coverage" />
 </a>
-
+<a href="https://www.npmjs.com/package/react-native-compare-slider">
+<img src="https://img.shields.io/npm/v/react-native-compare-slider.svg" alt="npm version" />
+</a>
 </div>
 
 ---
