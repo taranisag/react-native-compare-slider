@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { Animated, View } from 'react-native';
-import { PanGestureHandler } from 'react-native-gesture-handler';
+import {
+  PanGestureHandler,
+  PanGestureHandlerEventPayload,
+  State,
+} from 'react-native-gesture-handler';
+import { HandlerStateChangeEvent } from 'react-native-gesture-handler/lib/typescript/handlers/gestureHandlers';
 
 import { DEFAULT_SLIDER_SIZE } from '../../utils/constants';
 import { IDefaultSliderProps, ISliderProps } from '../../types';
@@ -23,9 +28,8 @@ const DefaultSlider: React.FC<IDefaultSliderProps> = ({
 
 export const Slider: React.FC<ISliderProps> = (props) => {
   const {
-    touchX = initialAnimatedValue,
+    containerSize: { height: containerHeight },
     translateX = initialAnimatedValue,
-    containerHeight,
     sliderSize = DEFAULT_SLIDER_SIZE,
     sliderStyles,
     showSeparationLine = true,
@@ -34,31 +38,50 @@ export const Slider: React.FC<ISliderProps> = (props) => {
       <DefaultSlider sliderSize={sliderSize} sliderStyles={sliderStyles} />
     ),
   } = props;
+  const lastOffsetX = useRef(0);
 
-  const onPanGestureEvent = Animated.event([{ nativeEvent: { x: touchX } }], {
-    useNativeDriver: false,
-  });
+  const onPanGestureEvent = Animated.event(
+    [{ nativeEvent: { translationX: translateX } }],
+    {
+      useNativeDriver: false,
+    }
+  );
+
+  const onHandlerStateChange = useCallback(
+    (event: HandlerStateChangeEvent<PanGestureHandlerEventPayload>) => {
+      if (event.nativeEvent.oldState === State.ACTIVE) {
+        lastOffsetX.current += event.nativeEvent.translationX;
+        translateX.setOffset(lastOffsetX.current);
+        translateX.setValue(0);
+      }
+    },
+    [translateX]
+  );
 
   return (
     <PanGestureHandler
       activeOffsetX={[-0, 0]}
       onGestureEvent={onPanGestureEvent}
+      onHandlerStateChange={onHandlerStateChange}
     >
-      <Animated.View>
-        <Animated.View
-          style={[styles.animatedView, { transform: [{ translateX }] }]}
-        >
-          {showSeparationLine && (
-            <View
-              style={[
-                styles.separationLine,
-                { height: containerHeight },
-                separationLineStyles,
-              ]}
-            />
-          )}
-          {SliderComponent}
-        </Animated.View>
+      <Animated.View
+        style={[
+          sliderSize,
+          styles.animatedView,
+          { transform: [{ translateX }] },
+        ]}
+        pointerEvents="box-only"
+      >
+        {showSeparationLine && (
+          <View
+            style={[
+              styles.separationLine,
+              { height: containerHeight },
+              separationLineStyles,
+            ]}
+          />
+        )}
+        {SliderComponent}
       </Animated.View>
     </PanGestureHandler>
   );

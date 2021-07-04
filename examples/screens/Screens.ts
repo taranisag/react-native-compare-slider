@@ -1,6 +1,7 @@
 export enum Screens {
+  CUSTOM_SLIDER_COMPONENT = 'Custom Slider Component',
   ROOT = 'Root',
-  SIMPLE_IMAGES = 'Simple images',
+  IMAGES = 'Images',
   TWO_MAPS = 'Two maps',
   PLAYGROUND = 'Playground',
 }

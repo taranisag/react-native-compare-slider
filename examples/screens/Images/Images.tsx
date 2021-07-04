@@ -10,9 +10,9 @@ const imageBefore = require('../../assets/images/before.jpg');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const imageAfter = require('../../assets/images/after.jpg');
 
-type ScreenSimpleImagesProps = StackScreenProps<never, Screens.SIMPLE_IMAGES>;
+type ScreenImagesProps = StackScreenProps<never, Screens.IMAGES>;
 
-export const ScreenSimpleImages: React.FC<ScreenSimpleImagesProps> = () => {
+export const ScreenImages: React.FC<ScreenImagesProps> = () => {
   return (
     <SafeAreaView>
       <CompareSlider
