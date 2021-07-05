@@ -36,6 +36,8 @@ $ npm install
 $ npm start android
 ```
 
+or check a [demo page](https://snack.expo.io/@taranis/react-native-compare-slider)
+
 ### Installation
 
 ```sh
