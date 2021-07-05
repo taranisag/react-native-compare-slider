@@ -2,6 +2,13 @@
   "name": "react-native-compare-slider",
   "main": "index.ts",
   "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "React",
+    "React Native",
+    "compare",
+    "slider"
+  ],
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
