@@ -27,6 +27,7 @@ export const ScreenTwoMaps: React.FC<ScreenTwoMapsProps> = () => {
   return (
     <SafeAreaView>
       <CompareSlider
+        containerSize={{ width: 300, height: 200 }}
         before={
           <RNM
             provider={PROVIDER_GOOGLE}
