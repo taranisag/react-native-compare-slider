@@ -65,6 +65,7 @@ import { CompareSlider } from 'react-native-compare-slider';
 <CompareSlider
   before={<Image source={imageBefore} resizeMode="cover" />}
   after={<Image source={imageAfter} resizeMode="cover" />}
+  containerSize={{ width: 350, height: 100 }}
 />;
 ```
 
@@ -101,6 +102,7 @@ import RNM, { MAP_TYPES, PROVIDER_GOOGLE } from 'react-native-maps';
       }}
     />
   }
+  containerSize={{ width: 300, height: 200 }}
 />;
 ```
 
@@ -116,6 +118,7 @@ import { CompareSlider } from 'react-native-compare-slider';
   after={<Image source={imageAfter} resizeMode="cover" />}
   sliderStyles={{ backgroundColor: 'green' }}
   showSeparationLine={false}
+  containerSize={{ width: 350, height: 100 }}
 />;
 ```
 
@@ -148,6 +151,7 @@ const styles = StyleSheet.create({
     </View>
   }
   showSeparationLine={false}
+  containerSize={{ width: 350, height: 100 }}
 />;
 ```
 
