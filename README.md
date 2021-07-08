@@ -50,7 +50,7 @@ $ npm install react-native-compare-slider
 | ---------------------- | ------------------------------------ | :------: | -------------- | ----------------------------------- |
 | `before`               | `ReactNode`                          |    ✓     | `undefined`    | First component to show in slider.  |
 | `after`                | `ReactNode`                          |    ✓     | `undefined`    | Second component to show in slider. |
-| `containerSize`        | `{ width: number; height: number; }` |          | `{100%, 100%}` | Container dimensions.               |
+| `containerSize`        | `{ width: number; height: number; }` |    ✓     | `{100%, 100%}` | Container dimensions.               |
 | `sliderSize`           | `{ width: number; height: number; }` |          | `{50, 50}`     | Slider's handle dimensions.         |
 | `SliderComponent`      | `ReactNode`                          |          | `undefined`    | Slider's handle component.          |
 | `sliderStyles`         | `ViewStyle`                          |          | `undefined`    | Slider's handle styles.             |
