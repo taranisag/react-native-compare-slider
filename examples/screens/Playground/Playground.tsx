@@ -18,6 +18,7 @@ export const ScreenPlayground: React.FC<ScreenPlaygroundProps> = () => {
   return (
     <SafeAreaView>
       <CompareSlider
+        containerSize={{ width: 350, height: 100 }}
         before={<Image source={imageBefore} resizeMode="cover" />}
         after={<Image source={imageAfter} resizeMode="cover" />}
         // sliderSize={sliderSize}

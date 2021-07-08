@@ -3,7 +3,7 @@ export default {
   slug: 'react-native-compare-slider',
   entryPoint: "node_modules/expo/AppEntry.js",
   version: '1.0.0',
-  orientation: 'portrait',
+  orientation: 'default',
   icon: './assets/images/icon.png',
   scheme: 'myapp',
   userInterfaceStyle: 'automatic',

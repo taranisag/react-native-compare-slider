@@ -1,5 +1,5 @@
-import React from 'react';
-import { Image, SafeAreaView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Image, SafeAreaView, useWindowDimensions } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 
 import { Screens } from '../Screens';
@@ -13,11 +13,21 @@ const imageAfter = require('../../assets/images/after.jpg');
 type ScreenImagesProps = StackScreenProps<never, Screens.IMAGES>;
 
 export const ScreenImages: React.FC<ScreenImagesProps> = () => {
+  const { width, height } = useWindowDimensions();
+  const [size, setSize] = useState({ width, height: width / 2 });
+
+  useEffect(() => {
+    if (width > height) {
+      setSize({ width: height, height: height / 1.5 });
+    }
+  }, [width, height]);
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <CompareSlider
         before={<Image source={imageBefore} />}
         after={<Image source={imageAfter} />}
+        containerSize={size}
       />
     </SafeAreaView>
   );

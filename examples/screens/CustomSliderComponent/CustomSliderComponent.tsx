@@ -36,6 +36,7 @@ export const ScreenCustomSliderComponent: React.FC<ScreenCustomSliderComponentPr
         <CompareSlider
           before={<Image source={imageBefore} />}
           after={<Image source={imageAfter} />}
+          containerSize={{ width: 300, height: 300 }}
           sliderSize={sliderSize}
           SliderComponent={
             <View style={styles.slider}>

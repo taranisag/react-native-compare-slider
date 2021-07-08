@@ -25,7 +25,7 @@ export interface ISliderProps extends IDefaultSliderProps {
 export interface ICompareSlider {
   before: React.ReactNode;
   after: React.ReactNode;
-  containerSize?: ISize;
+  containerSize: ISize;
 
   // Slider props
   sliderSize?: ISize;
