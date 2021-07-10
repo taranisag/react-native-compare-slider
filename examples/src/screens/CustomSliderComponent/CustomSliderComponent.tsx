@@ -1,14 +1,14 @@
+import { CompareSlider } from 'react-native-compare-slider';
 import React from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 
 import { Screens } from '../Screens';
-import { CompareSlider } from '../../../src/components/CompareSlider';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const imageBefore = require('../../assets/images/before.jpg');
+const imageBefore = require('../../../assets/images/before.jpg');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const imageAfter = require('../../assets/images/after.jpg');
+const imageAfter = require('../../../assets/images/after.jpg');
 
 type ScreenCustomSliderComponentProps = StackScreenProps<
   never,

@@ -1,0 +1,19 @@
+# This file should include also any files in .gitignore, if the build process is performed locally
+
+node_modules/
+.expo/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+.idea/
+
+# Examples folder
+examples/

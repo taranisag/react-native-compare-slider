@@ -1,10 +1,10 @@
+import { CompareSlider } from 'react-native-compare-slider';
 import React from 'react';
 import { Dimensions, StyleSheet, SafeAreaView } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import RNM, { MAP_TYPES, PROVIDER_GOOGLE } from 'react-native-maps';
 
 import { Screens } from '../Screens';
-import { CompareSlider } from '../../../src/components/CompareSlider';
 
 const { width: windowWidth, height: windowHeight } = Dimensions.get('window');
 

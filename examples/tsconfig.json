@@ -1,4 +1,5 @@
 {
+  "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
     "jsx": "react-native",
@@ -13,15 +14,12 @@
     "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "typeRoots": [
-      "./node_modules/@types",
-      "./src/types"
+      "./node_modules/@types"
     ]
   },
   "include": [
     "src",
-    "examples",
-    "examples/App.tsx",
-    "index.ts",
+    "App.tsx",
     ".app.config.ts"
   ],
   "exclude": [

@@ -10,11 +10,6 @@
     "slider"
   ],
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject",
     "test": "jest --watchAll",
     "prepare": "husky install",
     "cover": "jest --coverage && coveralls < coverage/lcov.info"
@@ -57,14 +52,7 @@
     "jest-expo": "~41.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
-    "typescript": "~4.0.0",
-    "react-native-screens": "~3.0.0",
-    "react-native-maps": "0.29.0",
-    "@react-navigation/native": "~5.8.10",
-    "@react-navigation/stack": "~5.12.8",
-    "expo": "~41.0.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
-    "react": "^16.13.1"
+    "typescript": "~4.0.0"
   },
   "husky": {
     "hooks": {
