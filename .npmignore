@@ -1,0 +1,36 @@
+# This file should include also any files in .gitignore, if the build process is performed locally
+
+
+##############################
+# Adding .gitignore files 
+
+node_modules/
+.expo/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+.idea/
+##############################
+
+# Examples 
+examples/
+assets/
+.expo-shared/
+App.tsx
+
+# Build files
+.husky/
+app.config.ts
+.travis.yml
+.prettierrc
+.eslintignore
+.eslintrc.js
+babel.config.js
