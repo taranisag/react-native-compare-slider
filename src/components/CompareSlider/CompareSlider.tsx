@@ -15,6 +15,7 @@ export const CompareSlider: React.FC<ICompareSlider> = (props) => {
     SliderComponent,
     sliderStyles,
     showSeparationLine,
+    separationLineStyles
   } = props;
   const { width: containerWidth, height: containerHeight } = containerSize;
   const translateX = useRef(new Animated.Value(0));
@@ -59,6 +60,7 @@ export const CompareSlider: React.FC<ICompareSlider> = (props) => {
         sliderStyles={sliderStyles}
         SliderComponent={SliderComponent}
         showSeparationLine={showSeparationLine}
+        separationLineStyles={separationLineStyles}
       />
     </View>
   );
