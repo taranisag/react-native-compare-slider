@@ -1,7 +1,7 @@
 {
   "name": "react-native-compare-slider",
   "main": "index.ts",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Compare slider for React Native. Compare any two components side by side.",
   "license": "MIT",
   "keywords": [
